@@ -4,7 +4,7 @@ using System.Text;
 using System.Management;
 using System.Security.Cryptography;
 
-namespace Halo_2_Launcher.Private
+namespace Halo_2_Launcher.Controllers
 {
     public static class Security
     {

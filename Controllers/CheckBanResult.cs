@@ -1,4 +1,4 @@
-﻿namespace Halo_2_Launcher.Private
+﻿namespace Halo_2_Launcher.Controllers
 {
     public enum CheckBanResult
     {
