@@ -53,37 +53,41 @@ namespace Halo_2_Launcher.Controllers
             {
                 var response = client.PostAsync(Api, content).Result;
                 var contentString = response.Content.ReadAsStringAsync().Result;
+                LoginResult Result = new LoginResult();
+                Result.LoginResultEnum = LoginResultEnum.GenericFailure;
+                Result.LoginToken = "-1";
                 if (rememberToken != "" && rememberToken.Length == 32)
                 {
                     if (contentString == "0")//Invalid Token
                     {
-                        return LoginResult.InvalidLoginToken;
+                       Result.LoginResultEnum = LoginResultEnum.InvalidLoginToken;
                     }
                     else if (contentString == "banned")
                     {
-                        return LoginResult.Banned; //FUCKIN' HACKERS GET OUT REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+                        Result.LoginResultEnum = LoginResultEnum.Banned; //FUCKIN' HACKERS GET OUT REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
                     }
                     else if (contentString == "1")
                     {
-                        return LoginResult.Successfull;
+                        Result.LoginResultEnum = LoginResultEnum.Successfull;
                     }
                 }
                 else
                 {
                     if (contentString == "0")//Invalid username or password
                     {
-                        return LoginResult.InvalidUsernameOrPassword;
+                        Result.LoginResultEnum = LoginResultEnum.InvalidUsernameOrPassword;
                     }
                     else if (contentString == "banned")
                     {
-                        return LoginResult.Banned;
+                        Result.LoginResultEnum = LoginResultEnum.Banned;
                     }
                     else if (contentString.Length == 32) //login successful
                     {
-                        return LoginResult.Successfull;
+                        Result.LoginResultEnum = LoginResultEnum.Successfull;
+                        Result.LoginToken = contentString;
                     }
                 }
-                return LoginResult.GenericFailure;
+                return Result;
             }
         }
         public bool Register(/*Halo_2_Launcher.Forms.MainForm Form, */string user, string pass, string email)
