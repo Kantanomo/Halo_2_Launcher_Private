@@ -69,6 +69,7 @@ namespace Halo_2_Launcher.Controllers
                     else if (contentString == "1")
                     {
                         Result.LoginResultEnum = LoginResultEnum.Successfull;
+                        Result.LoginToken = rememberToken;
                     }
                 }
                 else
