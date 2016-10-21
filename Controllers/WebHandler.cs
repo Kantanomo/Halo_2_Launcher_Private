@@ -6,7 +6,30 @@ namespace Halo_2_Launcher.Controllers
 {
     public class WebHandler
     {
-        private string Api = "http://cartographer.online/new_api.php";
+        private string Api = "http://cartographer.online/internal_api.php";
+        public string GetExternalIP()
+        {
+            using (var client = new HttpClient())
+            {
+                var response = client.GetAsync("http://cartographer.online/ipecho.php").Result;
+                return response.Content.ReadAsStringAsync().Result;
+            }
+        }
+        public bool BetaUser(string token)
+        {
+            var pairs = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("launcher", "1"),
+                new KeyValuePair<string, string>("token", token)
+            };
+            var content = new FormUrlEncodedContent(pairs);
+            using (var client = new HttpClient())
+            {
+                var response = client.PostAsync(Api, content).Result;
+                var contentString = response.Content.ReadAsStringAsync().Result;
+                return (contentString == "1") ? true : false;
+            }
+        }
         public CheckBanResult CheckBan(string username, string rememberToken)
         {
             var pairs = new List<KeyValuePair<string, string>>
