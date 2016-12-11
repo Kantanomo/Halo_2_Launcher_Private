@@ -8,22 +8,40 @@ namespace Halo_2_Launcher.Controllers
 {
     public static class Security
     {
-        public static string GetHardDriveSerial()
+        public static string GetSerial()
         {
-            ManagementObjectSearcher WMI_Searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMedia");
-            string Serial = "";
-            foreach (ManagementObject WMI_Object in WMI_Searcher.Get())
+            ManagementObjectSearcher managementObjectSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMedia");
+            string text = "";
+            using (ManagementObjectCollection.ManagementObjectEnumerator enumerator = managementObjectSearcher.Get().GetEnumerator())
             {
-                if (WMI_Object["SerialNumber"].ToString() != null)
+                while (enumerator.MoveNext())
                 {
-                    Serial = WMI_Object["SerialNumber"].ToString();
-                    break;
+                    ManagementObject managementObject = (ManagementObject)enumerator.Current;
+                    var serial = managementObject["SerialNumber"];
+                    bool flag = serial != null;
+                    if (flag)
+                    {
+                        text = serial.ToString();
+                        break;
+                    }
                 }
             }
-            if (Serial != "")
-                return CalculateMD5Hash(Serial.Trim());
-            else
-                return "No Serial?";
+            managementObjectSearcher = new ManagementObjectSearcher("Select * From Win32_processor");
+            using (ManagementObjectCollection.ManagementObjectEnumerator enumerator = managementObjectSearcher.Get().GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    ManagementObject managementObject = (ManagementObject)enumerator.Current;
+                    var serial = managementObject["ProcessorID"].ToString();
+                    bool flag = serial != null;
+                    if(flag)
+                    {
+                        text += serial.ToString();
+                        break;
+                    }
+                }
+            }
+            return CalculateMD5Hash(text);
         }
         public static string CalculateMD5Hash(string input)
         {

@@ -6,13 +6,13 @@ namespace Halo_2_Launcher.Controllers
 {
     public class WebHandler
     {
-        private string Api = "http://cartographer.online/new_api.php";
+        private string Api = "http://69.195.136.203/H2Cartographer/api/new_api.php";
         public CheckBanResult CheckBan(string username, string rememberToken)
         {
             var pairs = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("launcher", "1"),
-                new KeyValuePair<string, string>("serial", Security.GetHardDriveSerial())
+                new KeyValuePair<string, string>("serial", Security.GetSerial())
             };
             pairs.Add(new KeyValuePair<string, string>("token", rememberToken));
             var content = new FormUrlEncodedContent(pairs);
@@ -37,7 +37,7 @@ namespace Halo_2_Launcher.Controllers
             var pairs = new List<KeyValuePair<string, string>>
             {
             new KeyValuePair<string, string>("launcher", "1"),
-            new KeyValuePair<string, string>("serial", Security.GetHardDriveSerial())
+            new KeyValuePair<string, string>("serial", Security.GetSerial())
             };
 
             if (rememberToken != "")
