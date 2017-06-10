@@ -1,4 +1,4 @@
-﻿namespace Halo_2_Launcher.Controllers
+﻿namespace H2Shield.Includes
 {
     public enum CheckBanResult
     {

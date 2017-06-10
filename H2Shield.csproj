@@ -7,10 +7,11 @@
     <ProjectGuid>{D56ED3F0-7791-4324-AB09-FDF0E9A0F0E0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Halo_2_Launcher.Private</RootNamespace>
-    <AssemblyName>Halo_2_Launcher.Private</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>H2Shield</RootNamespace>
+    <AssemblyName>H2Shield</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,11 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\CheckBanResult.cs" />
-    <Compile Include="Controllers\LoginResult.cs" />
+    <Compile Include="Includes\CheckBanResult.cs" />
+    <Compile Include="Includes\Encryption.cs" />
+    <Compile Include="Includes\LoginResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\Security.cs" />
-    <Compile Include="Controllers\WebHandler.cs" />
+    <Compile Include="Includes\Security.cs" />
+    <Compile Include="Includes\WebHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

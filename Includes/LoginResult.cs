@@ -1,4 +1,4 @@
-﻿namespace Halo_2_Launcher.Controllers
+﻿namespace H2Shield.Includes
 {
     public class LoginResult
     {
@@ -6,25 +6,13 @@
         private string _LoginToken;
         public LoginResultEnum LoginResultEnum
         {
-            get
-            {
-                return _LoginResultEnum;
-            }
-            set
-            {
-                this._LoginResultEnum = value;
-            }
+            get { return _LoginResultEnum; }
+            set { _LoginResultEnum = value; }
         }
         public string LoginToken
         {
-            get
-            {
-                return this._LoginToken;
-            }
-            set
-            {
-                this._LoginToken = value;
-            }
+            get { return _LoginToken; }
+            set { _LoginToken = value; }
         }
     }
     public enum LoginResultEnum
