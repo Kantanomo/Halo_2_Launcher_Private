@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H2Shield", "H2Shield.csproj", "{D56ED3F0-7791-4324-AB09-FDF0E9A0F0E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Halo_2_Launcher.Private", "Halo_2_Launcher.Private.csproj", "{5F547BDE-9B41-49E1-91F3-9BA7152E3FFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D56ED3F0-7791-4324-AB09-FDF0E9A0F0E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D56ED3F0-7791-4324-AB09-FDF0E9A0F0E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D56ED3F0-7791-4324-AB09-FDF0E9A0F0E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D56ED3F0-7791-4324-AB09-FDF0E9A0F0E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F547BDE-9B41-49E1-91F3-9BA7152E3FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F547BDE-9B41-49E1-91F3-9BA7152E3FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F547BDE-9B41-49E1-91F3-9BA7152E3FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F547BDE-9B41-49E1-91F3-9BA7152E3FFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
